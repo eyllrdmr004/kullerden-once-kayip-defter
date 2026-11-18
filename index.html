@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Küllerden Önce | Kayıp Defter</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--gold:#c9a56b;--paper:#e9d8b6;--ink:#443326}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 32%,#554033 0%,#271e1a 55%,#130f0e 100%);color:#f0e2c9;font-family:'Cormorant Garamond',Georgia,serif;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow-x:hidden}.ambient{position:fixed;inset:0;pointer-events:none;opacity:.17;background:repeating-linear-gradient(35deg,transparent 0 5px,#fff1 6px 7px);mix-blend-mode:overlay}.heading{text-align:center;margin:25px 20px 20px;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:#d6bb91}.heading strong{display:block;font-size:clamp(23px,4vw,37px);font-weight:normal;letter-spacing:.09em;color:#f5e6ca;margin-top:8px}.scene{perspective:1800px;width:min(85vw,760px);height:min(56vw,475px);min-height:320px;position:relative;display:flex;align-items:center;justify-content:center}.book{width:90%;height:90%;position:relative;transform-style:preserve-3d;filter:drop-shadow(14px 24px 18px #0009)}.pages{position:absolute;inset:0;border-radius:5px 14px 14px 5px;background:linear-gradient(90deg,#b69b73 0%,#ead8b2 4%,#f3e4c4 50%,#d9c39b 100%);border:9px solid #38241c;box-shadow:inset 0 0 22px #8b654d77;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;color:var(--ink)}.pages:after{content:"";position:absolute;left:50%;top:0;bottom:0;width:12px;transform:translateX(-50%);background:linear-gradient(90deg,#7a604344,transparent 48%,#7a604355)}.page{padding:clamp(17px,3vw,37px);display:flex;flex-direction:column;justify-content:center;text-align:center}.page:first-child{border-right:1px solid #8b705444}.page .small{font-size:clamp(9px,1.3vw,13px);letter-spacing:.17em;text-transform:uppercase}.page h2{font-weight:normal;font-size:clamp(18px,3vw,30px);margin:15px 0}.page p{font-size:clamp(11px,1.65vw,16px);line-height:1.6}.ornament{color:#8e6336;font-size:26px}.cover{position:absolute;inset:0;width:100%;height:100%;transform-origin:left center;transform-style:preserve-3d;z-index:2;transition:transform 1.6s cubic-bezier(.2,.75,.2,1);border-radius:6px 16px 16px 6px;background:radial-gradient(ellipse at 60% 45%,#67412d,#3a251d 65%,#241812);border:9px solid #271712;box-shadow:inset 0 0 0 3px #795335,inset 0 0 0 11px #321f18,inset 0 0 0 13px #9c7446,8px 9px 10px #0007;backface-visibility:hidden;display:flex;align-items:center;justify-content:center}.cover:before{content:"";position:absolute;inset:25px;border:1px solid #c7a36a99;border-radius:4px;pointer-events:none}.cover:after{content:"";position:absolute;top:0;bottom:0;left:15px;width:12px;border-left:2px solid #ad845655;border-right:2px solid #ad845633}.cover-content{text-align:center;padding:20px;color:#dfc18a;text-shadow:0 2px 4px #0009}.cover-content .mark{font-size:40px;line-height:1}.cover-content .eyebrow{font-size:clamp(10px,1.3vw,14px);letter-spacing:.25em;margin-top:30px}.cover-content h1{font-size:clamp(28px,5vw,57px);font-weight:normal;line-height:1.13;margin:16px 0}.cover-content .rule{margin:18px auto;width:95px;border-top:1px solid #d1aa73}.cover-content .subtitle{font-size:clamp(11px,1.5vw,17px);letter-spacing:.12em}.book.open .cover{transform:rotateY(-158deg)}.controls{display:flex;gap:12px;align-items:center;justify-content:center;margin:15px 20px 30px;flex-wrap:wrap}button{cursor:pointer;border:1px solid #d5b47e;background:#c5a16c;color:#241910;padding:13px 28px;font:600 19px 'Cormorant Garamond',Georgia,serif;letter-spacing:.05em;border-radius:3px;transition:background .2s}button:hover{background:#ebc891}button.secondary{background:transparent;color:#e5d3b4;border-color:#9a7a53}button.secondary:hover{background:#ffffff12}.note{font-size:12px;color:#c3ab8d;text-align:center;max-width:550px;padding:0 20px 25px;line-height:1.6}@media(max-width:600px){.scene{width:95vw;height:340px;min-height:0}.book{width:94%;height:85%}.cover-content .eyebrow{margin-top:15px}.cover-content .mark{font-size:28px}.page{padding:10px}.page p{font-size:10px}.page h2{font-size:17px}.pages{border-width:5px}.cover{border-width:6px}.cover:before{inset:12px}}@media(prefers-reduced-motion:reduce){.cover{transition:none}}
+
+/* Belge sayfalari */
+.page.document-page{justify-content:flex-start;text-align:left;overflow-y:auto;scrollbar-width:thin;padding:clamp(14px,2.3vw,29px)}
+.document-page .small{text-align:center;font-size:clamp(9px,1.2vw,12px)}
+.document-page h2{text-align:center;font-size:clamp(20px,2.8vw,29px);line-height:1.08;margin:10px 0 8px}
+.document-page p{font-size:clamp(12px,1.7vw,17px);line-height:1.38;margin:7px 0}
+.document-page .seal{text-align:center;font-size:29px;color:#90643e;margin:5px 0}
+.document-page .signatures{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #9b7b59;padding-top:8px;margin-top:auto;font-style:italic;font-size:clamp(12px,1.6vw,17px)}
+.document-page .folio{margin-top:auto;text-align:right;opacity:.65;font-style:italic;font-size:13px}
+.document-page .callout{border-left:2px solid #9b714c;padding-left:10px;font-style:italic}
+.document-page .document-label{font-size:12px;letter-spacing:.12em;text-align:center;text-transform:uppercase}
+#pageStatus{color:#e7d3ae;font-size:16px;min-width:88px;text-align:center}
+button:disabled{opacity:.35;cursor:not-allowed}
+@media(max-width:600px){.document-page p{font-size:11px}.document-page h2{font-size:17px}.document-page .signatures{font-size:11px}.document-page .seal{font-size:19px}}
+
+.imza-alani {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.imza {
+  display: inline-block;
+  margin: 10px 16px;
+}
+
+.el-yazisi {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 32px;
+  color: #583923;
+}
+
+.imza p {
+  font-size: 13px;
+  border-top: 1px solid #987b59;
+  padding-top: 7px;
+}
+
+.balmumu-muhur {
+  width: 76px;
+  height: 76px;
+  margin: 20px auto 0;
+  border-radius: 50%;
+  background: #87372c;
+  border: 5px double #b66b51;
+  box-shadow: 2px 4px 8px #76543b88;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e8c79c;
+  font-family: Georgia, serif;
+  font-size: 17px;
+}
+
+
+/* Belge 01: imzalar ve balmumu muhur */
+.agreement-authentication{margin-top:12px;padding-top:9px;border-top:1px solid #a98a64;text-align:center}
+.signature-pair{display:flex;justify-content:space-around;gap:10px}
+.signature-person{display:flex;flex-direction:column;align-items:center;min-width:0;flex:1}
+.hand-signature{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(21px,2.7vw,32px);line-height:1.05;color:#563725;transform:rotate(-5deg);border-bottom:1px solid #9c7954;padding:0 10px 4px}
+.signature-person:last-child .hand-signature{transform:rotate(4deg)}
+.signature-caption{font-size:clamp(9px,1.1vw,12px);margin-top:5px;color:#70553e}
+.wax-seal{width:61px;height:61px;margin:10px auto 0;border-radius:46% 54% 48% 52%;background:radial-gradient(circle at 35% 28%,#b65c4c 0%,#963a31 40%,#6b241e 80%);border:5px ridge #9d4939;box-shadow:inset 0 0 0 2px #c97c60,inset 0 0 9px #4d1719,2px 4px 7px #5c3c2c66;display:flex;align-items:center;justify-content:center;color:#f0c7a2;font:600 18px Georgia,serif;transform:rotate(-8deg)}
+.seal-amp{font-size:11px;padding:0 1px}
+.seal-caption{font-size:9px;letter-spacing:.15em;color:#79543e;margin-top:5px}
+@media(max-width:600px){.agreement-authentication{margin-top:8px;padding-top:6px}.wax-seal{width:45px;height:45px;margin-top:7px;font-size:13px}.hand-signature{font-size:20px}.signature-caption{font-size:9px}.seal-caption{font-size:8px}}
+
+/* Belge 02: saray siparisi ve odeme kaydi */
+.royal-crest{width:56px;height:56px;margin:9px auto;border:2px solid #956d42;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#79502c;font-size:29px;box-shadow:inset 0 0 0 4px #956d4233}
+.ledger-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:clamp(11px,1.45vw,15px)}
+.ledger-table th,.ledger-table td{border-bottom:1px solid #9b7b5966;padding:7px 3px;text-align:left;vertical-align:top}
+.ledger-table th{width:42%;font-weight:600}
+.unpaid-stamp{align-self:center;display:inline-block;margin:12px auto 5px;padding:7px 12px;border:3px double #963d31;color:#963d31;transform:rotate(-8deg);font-size:clamp(13px,2vw,21px);font-weight:700;letter-spacing:.11em;text-align:center;line-height:1.1}
+.archive-footnote{font-size:clamp(10px,1.3vw,13px)!important;font-style:italic;color:#775c45}
+@media(max-width:600px){.ledger-table{font-size:10px}.ledger-table th,.ledger-table td{padding:5px 2px}.royal-crest{width:42px;height:42px;font-size:22px}}
+
+/* Belge 03: gizli yazisma */
+.letter-sheet{position:relative;padding:13px 12px 10px;border:1px solid #b89b74;background:linear-gradient(145deg,#f4e8ceaa,#d6bc9080);box-shadow:inset 0 0 14px #7e5c2d20;transform:rotate(-.6deg)}
+.letter-sheet p{line-height:1.52}
+.letter-rule{width:55%;border-top:1px solid #947650;margin:10px auto}
+.confidential-stamp{align-self:center;display:inline-block;border:2px double #833d31;color:#833d31;padding:5px 12px;letter-spacing:.17em;font-size:clamp(12px,1.6vw,17px);transform:rotate(-7deg);margin:8px auto}
+.letter-signoff{text-align:right!important;font-style:italic;margin-top:12px!important}
+.document-page .evidence-tag{font-size:clamp(10px,1.35vw,13px);text-transform:uppercase;letter-spacing:.1em;color:#77533c;text-align:center}
+@media(max-width:600px){.letter-sheet{padding:8px}.confidential-stamp{font-size:11px}}
+
+/* Edmund'un gizli ön anlaşmasındaki imza */
+.edmund-signature{display:flex;flex-direction:column;align-items:flex-end;gap:2px;margin-top:13px;padding-top:7px;border-top:1px solid #ab8d68;color:#64432c;font-size:12px}
+.edmund-hand{font-family:'Brush Script MT','Segoe Script',cursive;font-size:clamp(23px,3vw,34px);font-style:italic;line-height:1.1;transform:rotate(-5deg)}
+
+/* Belge 04: Helena'nin gizli yatirimci mutabakati */
+.investment-sheet{border:1px solid #9d7b53;background:linear-gradient(160deg,#f4e6c9a8,#e2cda68a);padding:13px 12px;box-shadow:inset 0 0 0 3px #a98a5b26}
+.investment-heading{text-align:center;font-size:clamp(10px,1.4vw,13px);letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid #aa8b63;padding-bottom:7px;margin-bottom:10px}
+.investment-clause{border-bottom:1px dotted #ad916b;padding:6px 0}
+.investment-clause strong{font-weight:700}
+.investment-sign{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-top:12px;border-top:1px solid #a88b67;padding-top:8px}
+.investment-sign .hand-signature{font-size:clamp(23px,3vw,32px)}
+.investment-sign .unsigned{font-style:italic;font-size:clamp(10px,1.3vw,13px);color:#80654a;border-bottom:1px solid #9d7b53;padding-bottom:5px}
+.investment-secrecy{align-self:center;display:inline-block;border:2px solid #854637;color:#854637;transform:rotate(-5deg);font-size:clamp(12px,1.7vw,18px);letter-spacing:.14em;padding:5px 12px;margin:10px auto}
+@media(max-width:600px){.investment-sheet{padding:8px}.investment-clause{padding:3px 0}}
+
+/* Belge 05: prensin gördüğü ve saklanan kayıtlar */
+.evidence-sheet{border:1px solid #a68b64;background:linear-gradient(150deg,#f6e8cda8,#e3cca38c);padding:12px;box-shadow:inset 0 0 0 3px #9c785122}
+.evidence-sheet .document-heading{font-size:clamp(11px,1.5vw,14px);text-align:center;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid #b69a71;padding-bottom:8px;margin-bottom:10px}
+.evidence-line{padding:7px 0;border-bottom:1px dotted #ac906c;font-size:clamp(12px,1.55vw,16px);line-height:1.3}
+.evidence-line:last-child{border-bottom:0}
+.evidence-mark{display:inline-block;margin:9px auto 3px;border:2px double #80613e;color:#80613e;letter-spacing:.12em;padding:5px 10px;font-size:clamp(11px,1.5vw,15px);transform:rotate(-3deg)}
+.hidden-mark{display:inline-block;margin:9px auto 3px;border:2px double #913e36;color:#913e36;letter-spacing:.12em;padding:5px 10px;font-size:clamp(11px,1.5vw,15px);transform:rotate(4deg)}
+@media(max-width:600px){.evidence-sheet{padding:7px}.evidence-line{font-size:11px;padding:4px 0}}
+</style>
+</head>
+<body><div class="ambient"></div><div class="heading">Drizella'nın bulduğu kayıtlar<strong>Küllerden Önce</strong></div><main class="scene"><div class="book" id="book"><div class="pages"><section class="page document-page" id="leftPage" aria-live="polite"></section><section class="page document-page" id="rightPage"></section></div><div class="cover"><div class="cover-content"><div class="mark">❧</div><div class="eyebrow">Özel kayıtlar</div><h1>Kayıp<br>Defter</h1><div class="rule"></div><div class="subtitle">Edmund &amp; Helena Atölyesi</div></div></div></div></main><div class="controls"><button id="toggle" aria-expanded="false" aria-controls="book">Defteri Aç</button><button class="secondary" id="prev" disabled>← Önceki</button><span id="pageStatus" aria-live="polite">1 / 2</span><button class="secondary" id="next">Sonraki →</button><button class="secondary" id="reset">Başa Dön</button></div><p class="note">Bu dijital defter, hikâyedeki kayıtlardan hareketle hazırlanmış kurgusal belge canlandırmaları içerir.</p><script>
+const book = document.getElementById('book');
+const toggle = document.getElementById('toggle');
+const leftPage = document.getElementById('leftPage');
+const rightPage = document.getElementById('rightPage');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const pageStatus = document.getElementById('pageStatus');
+
+// Her dizi elemani, defterin karsilikli iki sayfasini temsil eder.
+const spreads = [
+  [
+    `<div class="seal">❦</div><div class="small">Atölye kayıtları</div><h2>Hesap Defteri</h2><p>Edmund ve Helena'nın ortaklığına ait saklı belgeler.</p><p class="callout">Bir atölye. Ödenmeyen bir saray borcu. Gizlenen anlaşmalar.</p><div class="folio">I</div>`,
+    `<div class="small">Arşiv notu</div><h2>Gerçekler, sayfaların arasında.</h2><p>Bu defter, Edmund ve Helena'nın atölyesiyle ilgili kayıtları bir araya getirir.</p><p>İlerleyen sayfalarda, iki ailenin geçmişini etkileyen belgeleri inceleyeceksiniz.</p><div class="folio">II</div>`
+  ],
+  [
+    `<div class="document-label">Belge 01 · Ortaklık</div><h2>Atölye Ortaklık Kaydı</h2><div class="seal">❧</div><p>Bu kayıt, Edmund ile Helena'nın birlikte yürüttüğü dokuma atölyesine ilişkin görev ve katkılarını belgelemek amacıyla düzenlenmiştir.</p><p><strong>Edmund:</strong> Atölyenin kuruluş sermayesini sağlamış ve resmî sahiplik işlemlerini üstlenmiştir.</p><p><strong>Helena:</strong> Üretim sürecini, işçileri ve ticari ilişkileri yönetmiştir.</p><p>Taraflar arasında Helena'nın atölyedeki emeği ve ortaklık hakları konusunda özel bir anlaşma bulunmaktadır.</p><div class="agreement-authentication"><div class="signature-pair"><div class="signature-person"><span class="hand-signature">Edmund</span><span class="signature-caption">Sermaye ortağı</span></div><div class="signature-person"><span class="hand-signature">Helena</span><span class="signature-caption">Üretim ve ticari ilişkiler</span></div></div><div class="wax-seal" aria-label="Edmund ve Helena atölyesi ortaklık mührü"><span>E<span class="seal-amp">&amp;</span>H</span></div><div class="seal-caption">ORTAKLIK KAYDI</div></div>`,
+    `<div class="document-label">Belge 01 · İnceleme notu</div><h2>Görünmeyen Ortaklık</h2><p>Atölyenin sahibi olarak herkes Edmund'u tanıyordu. Oysa kuruluşundan itibaren Helena da üretimi ve ticari ilişkileri üstlenmişti.</p><p class="callout">Saraydan gelen büyük siparişin ödemesi tamamlanmayınca atölye borçlandı. Edmund araziyi satmayı düşündü; Helena atölyenin kapatılmasına karşı çıktı.</p><p>Hesap defteri kaybolduğunda Helena, ortaklık haklarını kanıtlamakta zorlandı.</p><div class="folio">Belge 01 / 05</div>`
+  ],
+  [
+    `<div class="document-label">Belge 02 · Saray siparişi</div><h2>Sipariş ve Teslim Kaydı</h2><div class="royal-crest" aria-label="Saray arşivini simgeleyen süsleme">♛</div><p>Edmund ve Helena Atölyesi'ne saray tarafından verilen büyük dokuma siparişine ilişkin hesap özeti.</p><table class="ledger-table"><tbody><tr><th>Siparişi veren</th><td>Saray</td></tr><tr><th>Üretimi üstlenen</th><td>Edmund ve Helena Atölyesi</td></tr><tr><th>İşin niteliği</th><td>Dokuma ürünleri</td></tr><tr><th>Ödeme durumu</th><td>Kısmen ödenmiş; bakiye kapanmamış</td></tr></tbody></table><p class="archive-footnote">Özgün hikâyede kesin tarih, ürün adedi ve tutar belirtilmediğinden bu kayıtta sayısal değer kullanılmamıştır.</p><div class="folio">Saray siparişi · Kayıt özeti</div>`,
+    `<div class="document-label">Belge 02 · Borç incelemesi</div><h2>Kapanmayan Hesap</h2><p>Saraydan gelen büyük siparişin ödemesi tamamlanmadı. Atölyenin mali yükü giderek ağırlaştı.</p><div class="unpaid-stamp">ÖDEME<br>TAMAMLANMADI</div><p>Edmund, borçları karşılamak için atölyenin bulunduğu araziyi satmayı düşündü.</p><p>Helena ise üretimi sürdürmek ve atölyeyi ayakta tutmak istedi.</p><p class="callout">Ödenmeyen saray hesabı, iki ortağın geleceğe ilişkin kararlarını karşı karşıya getirdi.</p><div class="folio">Belge 02 / 05</div>`
+  ]
+  ,[
+    `<div class="document-label">Belge 03 · Gizli belge</div><h2>Arazi Satışı Ön Anlaşması</h2><div class="confidential-stamp">GİZLİ</div><div class="letter-sheet"><div class="evidence-tag">Atölye arazisine ilişkin belge</div><div class="letter-rule"></div><p>Atölyenin biriken borçlarının karşılanması amacıyla, atölyenin bulunduğu arazi için satış görüşmelerine başlanmasını kabul ediyorum.</p><p>Bu belge, satış niyetimi ve görüşme yetkimi gösterir; mülkiyet devrinin tamamlandığı anlamına gelmez.</p><div class="edmund-signature"><span class="edmund-hand">Edmund</span><span>İmza · Edmund</span></div></div><div class="folio">Gizli satış belgesi</div>`,
+    `<div class="document-label">Belge 03 · İnceleme notu</div><h2>Helena'dan Saklanan Karar</h2><p>Edmund, sarayın tamamlamadığı ödeme nedeniyle büyüyen borçları kapatmak için atölyeyi ve arazisini satmayı düşünüyordu.</p><p>Helena ise birlikte emek verdikleri atölyenin kapanmasına karşıydı.</p><p class="callout">Sindirella, babasının çalışma odasında bulduğu hesap defterinde bu gizli satış girişimine ilişkin belgelerle karşılaştı.</p><p>Belgelerin açığa çıkmasının babasının itibarını zedeleyebileceğini düşünerek defteri sakladı.</p><div class="folio">Belge 03 / 05</div>`
+  ],
+  [
+    `<div class="document-label">Belge 04 · Gizli mutabakat</div><h2>Yatırımcı Anlaşması</h2><div class="investment-secrecy">GİZLİ</div><div class="investment-sheet"><div class="investment-heading">Atölyenin devamına ilişkin mutabakat</div><p class="investment-clause"><strong>Taraf:</strong> Helena, atölyenin üretim ve ticari işlerini yürüten ortak.</p><p class="investment-clause"><strong>Amaç:</strong> Atölyenin faaliyetini sürdürebilmesi için dışarıdan mali destek sağlanması.</p><p class="investment-clause"><strong>Esas:</strong> Sağlanacak desteğin ve tarafların haklarının ayrıca kayıt altına alınması.</p><p>Bu mutabakat, atölyenin kapanmasını önlemeye yönelik özel görüşmeler kapsamında düzenlenmiştir.</p><div class="investment-sign"><div><span class="hand-signature">Helena</span><div class="signature-caption">Helena · İmza</div></div><div class="unsigned">Diğer tarafın kaydı gizli</div></div></div><div class="folio">Özel anlaşma kaydı</div>`,
+    `<div class="document-label">Belge 04 · Gizli kayıt</div><h2>Atölyeyi Ayakta Tutmak</h2><p>Helena, saraydan kalan alacak tahsil edilemeyince atölyeyi koruyabilmek için başka bir yatırımcıyla anlaşma yaptı.</p><p>Edmund araziyi satmayı düşünürken Helena, üretimin sürmesini sağlayacak farklı bir yol arıyordu.</p><p class="callout">Bu belge, Helena'nın atölye üzerindeki emeğini ve geleceğine ilişkin kendi kararlarını görünür kılar.</p><p class="archive-footnote">Yatırımcının kimliği, anlaşmanın bedeli ve kesin koşulları hikâyede belirtilmediği için burada yer almıyor.</p><div class="folio">Belge 04 / 05</div>`
+  ],
+  [
+    `<div class="document-label">Belge 05 · Seçilmiş sayfalar</div><h2>Prense Sunulan Kayıtlar</h2><div class="evidence-mark">İNCELEMEYE SUNULDU</div><div class="evidence-sheet"><div class="document-heading">Atölye hesap defterinden seçmeler</div><div class="evidence-line"><strong>Resmî sahiplik:</strong> Edmund adına kayıtlı atölye.</div><div class="evidence-line"><strong>Saray siparişi:</strong> Ödemesi tamamlanmayan büyük sipariş.</div><div class="evidence-line"><strong>Borç durumu:</strong> Atölyenin kapanmasına yol açan mali yük.</div></div><p class="archive-footnote">Sindirella'nın prense gösterdiği kayıtların temsili düzenlemesi. Defterin bütün sayfaları sunulmadı.</p><div class="folio">Belge 05 / 05</div>`,
+    `<div class="document-label">Belge 05 · Saklanan sayfalar</div><h2>Gösterilmeyen Kayıtlar</h2><div class="hidden-mark">GİZLİ TUTULDU</div><div class="evidence-sheet"><div class="document-heading">Defterin eksik bırakılan bölümleri</div><div class="evidence-line"><strong>Ortaklık anlaşması:</strong> Helena'nın üretim ve ticaret üzerindeki hakları.</div><div class="evidence-line"><strong>Arazi satış girişimi:</strong> Edmund'un Helena'dan gizlediği plan.</div><div class="evidence-line"><strong>Yatırımcı anlaşması:</strong> Helena'nın atölyeyi sürdürme çabası.</div></div><p class="archive-footnote">Prens, kendisine sunulan belgelerle karar verdi. Yıllar sonra Drizella defterin saklanan kayıtlarını buldu.</p><div class="folio">Defterin sonu · V</div>`
+  ]
+];
+let currentSpread = 0;
+function renderSpread() {
+  leftPage.innerHTML = spreads[currentSpread][0];
+  rightPage.innerHTML = spreads[currentSpread][1];
+  leftPage.scrollTop = 0;
+  rightPage.scrollTop = 0;
+  prev.disabled = currentSpread === 0;
+  next.disabled = currentSpread === spreads.length - 1;
+  pageStatus.textContent = `${currentSpread + 1} / ${spreads.length}`;
+}
+function setOpen(open) {
+  book.classList.toggle('open', open);
+  toggle.textContent = open ? 'Defteri Kapat' : 'Defteri Aç';
+  toggle.setAttribute('aria-expanded', String(open));
+  prev.hidden = next.hidden = pageStatus.hidden = !open;
+}
+toggle.addEventListener('click', () => setOpen(!book.classList.contains('open')));
+prev.addEventListener('click', () => { if (currentSpread > 0) { currentSpread--; renderSpread(); } });
+next.addEventListener('click', () => { if (currentSpread < spreads.length - 1) { currentSpread++; renderSpread(); } });
+document.getElementById('reset').addEventListener('click', () => { currentSpread = 0; renderSpread(); setOpen(false); });
+renderSpread();
+setOpen(false);
+</script></body></html>
