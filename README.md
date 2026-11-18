@@ -1,0 +1,1 @@
+# kullerden-once-kayip-defter
